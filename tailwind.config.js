@@ -4,6 +4,9 @@ module.exports = {
   },
   darkMode: false, // or 'media' or 'class'
   theme: {
+    fontFamily: {
+      mono: ["Menlo", "monospace"],
+    },
     minWidth: {
       0: "0",
       "1/4": "25%",
@@ -13,18 +16,6 @@ module.exports = {
       "3hun": "300px",
       "275hun": "275px",
       "250hun": "250px",
-    },
-    extend: {
-      animation: {
-        "reverse-spin": "reverse-spin .3s linear infinite",
-      },
-      keyframes: {
-        "reverse-spin": {
-          from: {
-            transform: "rotate(360deg)",
-          },
-        },
-      },
     },
   },
   variants: {

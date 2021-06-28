@@ -39,7 +39,7 @@ import Nav from "./nav.svelte"
 	<title>Crypto-Coins</title>
 </svelte:head>
 
-<main class="p-8 max-w-7xl mx-auto bg-gray-600">
+<main class="p-8 max-w-7xl mx-auto bg-gray-600 font-mono">
 	<!-- <Nav /> -->
 	<h1 class="text-gray-100 text-4xl text-center mt-8 uppercase">Crypto-Tracker</h1>
 	<p class="text-gray-300 text-sm italic text-center">for the highest 20 cryptocurrency</p>
