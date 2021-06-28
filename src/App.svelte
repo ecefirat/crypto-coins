@@ -65,7 +65,7 @@ import Nav from "./nav.svelte"
 	<p class="text-lg">{coin.name}</p>
 	<p>$ {coin.current_price.toFixed(2)}</p>
 	{#if coin.price_change_percentage_24h > 0}
-	<p>%{coin.price_change_percentage_24h.toFixed(2)}</p>
+	<p class="text-green-500">%{coin.price_change_percentage_24h.toFixed(2)}</p>
 	{:else}
 	<p class="text-red-500">%{coin.price_change_percentage_24h.toFixed(2)}</p>
 {/if}

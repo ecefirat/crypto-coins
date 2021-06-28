@@ -462,7 +462,7 @@ var app = (function () {
     			t0 = text("%");
     			t1 = text(t1_value);
     			attr_dev(p, "class", "text-red-500");
-    			add_location(p, file, 69, 1, 2068);
+    			add_location(p, file, 69, 1, 2091);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -500,6 +500,7 @@ var app = (function () {
     			p = element("p");
     			t0 = text("%");
     			t1 = text(t1_value);
+    			attr_dev(p, "class", "text-green-500");
     			add_location(p, file, 67, 1, 2004);
     		},
     		m: function mount(target, anchor) {
@@ -593,7 +594,7 @@ var app = (function () {
     			add_location(p1, file, 64, 1, 1882);
     			add_location(p2, file, 65, 1, 1918);
     			attr_dev(p3, "class", "font-semibold");
-    			add_location(p3, file, 71, 0, 2149);
+    			add_location(p3, file, 71, 0, 2172);
     			attr_dev(div, "class", "p-4 bg-red-200 text-gray-800 text-center rounded-md shadow-sm hover:shadow-md flex flex-col items-center");
     			attr_dev(div, "href", div_href_value = "/coin/$" + /*coin*/ ctx[6].id);
     			add_location(div, file, 58, 1, 1631);
