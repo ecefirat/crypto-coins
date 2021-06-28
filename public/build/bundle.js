@@ -462,7 +462,7 @@ var app = (function () {
     			t0 = text("%");
     			t1 = text(t1_value);
     			attr_dev(p, "class", "text-red-500");
-    			add_location(p, file, 69, 1, 2026);
+    			add_location(p, file, 69, 1, 2051);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -500,7 +500,7 @@ var app = (function () {
     			p = element("p");
     			t0 = text("%");
     			t1 = text(t1_value);
-    			add_location(p, file, 67, 1, 1962);
+    			add_location(p, file, 67, 1, 1987);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -583,19 +583,20 @@ var app = (function () {
     			p3 = element("p");
     			t10 = text(t10_value);
     			t11 = space();
-    			add_location(p0, file, 62, 0, 1743);
-    			attr_dev(img, "width", "40");
-    			attr_dev(img, "height", "40");
+    			attr_dev(p0, "class", "mb-2");
+    			add_location(p0, file, 62, 0, 1761);
+    			attr_dev(img, "class", "w-16 h-16");
     			if (img.src !== (img_src_value = /*coin*/ ctx[6].image)) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", img_alt_value = /*coin*/ ctx[6].name);
-    			add_location(img, file, 63, 1, 1775);
+    			add_location(img, file, 63, 0, 1805);
     			attr_dev(p1, "class", "text-lg");
-    			add_location(p1, file, 64, 1, 1840);
-    			add_location(p2, file, 65, 1, 1876);
-    			add_location(p3, file, 71, 0, 2107);
-    			attr_dev(div, "class", "p-6 bg-red-200 text-gray-800 text-center rounded-md shadow-sm hover:shadow-md flex flex-col items-center");
+    			add_location(p1, file, 64, 1, 1865);
+    			add_location(p2, file, 65, 1, 1901);
+    			attr_dev(p3, "class", "font-semibold");
+    			add_location(p3, file, 71, 0, 2132);
+    			attr_dev(div, "class", "p-4 bg-red-200 text-gray-800 text-center rounded-md shadow-sm hover:shadow-md flex flex-col items-center");
     			attr_dev(div, "href", div_href_value = "/coin/$" + /*coin*/ ctx[6].id);
-    			add_location(div, file, 58, 1, 1596);
+    			add_location(div, file, 58, 1, 1614);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -721,7 +722,7 @@ var app = (function () {
     			attr_dev(input, "class", "w-full rounded-md text-lg p-4 border-2 border-gray-200 my-4");
     			attr_dev(input, "placeholder", "Search a currency...");
     			add_location(input, file, 47, 0, 1337);
-    			attr_dev(div, "class", "grid gap-4 grid-cols-2 md:grid-cols-4");
+    			attr_dev(div, "class", "grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4");
     			add_location(div, file, 56, 0, 1513);
     			attr_dev(main, "class", "p-8 max-w-6xl mx-auto bg-gray-600");
     			add_location(main, file, 41, 0, 961);

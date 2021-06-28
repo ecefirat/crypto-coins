@@ -54,14 +54,14 @@ import Nav from "./nav.svelte"
 />
 
 
-<div class="grid gap-4 grid-cols-2 md:grid-cols-4">
+<div class="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 	{#each searchResult as coin}
 	<div
-	class="p-6 bg-red-200 text-gray-800 text-center rounded-md shadow-sm hover:shadow-md flex flex-col items-center"
+	class="p-4 bg-red-200 text-gray-800 text-center rounded-md shadow-sm hover:shadow-md flex flex-col items-center"
 	href="/coin/${coin.id}"
 >	
-<p>{coin.market_cap_rank}.</p>
-	<img width="40" height="40" src={coin.image} alt={coin.name} />
+<p class="mb-2">{coin.market_cap_rank}.</p>
+<img class="w-16 h-16" src={coin.image} alt={coin.name} />
 	<p class="text-lg">{coin.name}</p>
 	<p>$ {coin.current_price.toFixed(2)}</p>
 	{#if coin.price_change_percentage_24h > 0}
@@ -69,7 +69,7 @@ import Nav from "./nav.svelte"
 	{:else}
 	<p class="text-red-500">%{coin.price_change_percentage_24h.toFixed(2)}</p>
 {/if}
-<p>{getNumber(coin.market_cap)}</p>
+<p class="font-semibold">{getNumber(coin.market_cap)}</p>
 
 </div>
 	{/each}
