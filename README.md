@@ -1,6 +1,7 @@
 # crypto-coins
 
-A simple tracker for the 20 cryptocurrency coins by using coingecko API. https://www.coingecko.com/en/api
+A simple tracker for the 20 cryptocurrency coins by using coingecko API. 
+https://www.coingecko.com/en/api
 
 # Technologies
 
