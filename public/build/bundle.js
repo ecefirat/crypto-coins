@@ -46,6 +46,9 @@ var app = (function () {
     function element(name) {
         return document.createElement(name);
     }
+    function svg_element(name) {
+        return document.createElementNS('http://www.w3.org/2000/svg', name);
+    }
     function text(data) {
         return document.createTextNode(data);
     }
@@ -386,12 +389,26 @@ var app = (function () {
     function create_fragment$2(ctx) {
     	let nav;
     	let a;
+    	let svg;
+    	let path;
 
     	const block = {
     		c: function create() {
     			nav = element("nav");
     			a = element("a");
-    			a.textContent = "Home";
+    			svg = svg_element("svg");
+    			path = svg_element("path");
+    			attr_dev(path, "stroke-linecap", "round");
+    			attr_dev(path, "stroke-linejoin", "round");
+    			attr_dev(path, "stroke-width", "2");
+    			attr_dev(path, "d", "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15");
+    			add_location(path, file$2, 3, 3, 215);
+    			attr_dev(svg, "xmlns", "http://www.w3.org/2000/svg");
+    			attr_dev(svg, "class", "h-6 w-6");
+    			attr_dev(svg, "fill", "none");
+    			attr_dev(svg, "viewBox", "0 0 24 24");
+    			attr_dev(svg, "stroke", "currentColor");
+    			add_location(svg, file$2, 2, 2, 101);
     			attr_dev(a, "class", "m-4 text-lg");
     			attr_dev(a, "href", "/");
     			add_location(a, file$2, 1, 1, 66);
@@ -404,6 +421,8 @@ var app = (function () {
     		m: function mount(target, anchor) {
     			insert_dev(target, nav, anchor);
     			append_dev(nav, a);
+    			append_dev(a, svg);
+    			append_dev(svg, path);
     		},
     		p: noop,
     		i: noop,
