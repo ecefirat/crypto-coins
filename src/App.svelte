@@ -32,8 +32,6 @@ import Header from "./header.svelte"
 	const mc = x.toFixed(0)+ ' ' + units[Math.floor(unit / 3) - 2];
 	return mc;
 };
-
-
 </script>
 
 <svelte:head>

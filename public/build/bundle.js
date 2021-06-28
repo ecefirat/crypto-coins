@@ -556,7 +556,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (68:1) {:else}
+    // (66:1) {:else}
     function create_else_block(ctx) {
     	let p;
     	let t0;
@@ -569,7 +569,7 @@ var app = (function () {
     			t0 = text("%");
     			t1 = text(t1_value);
     			attr_dev(p, "class", "text-red-500");
-    			add_location(p, file, 68, 1, 1820);
+    			add_location(p, file, 66, 1, 1818);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -588,14 +588,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(68:1) {:else}",
+    		source: "(66:1) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (66:1) {#if coin.price_change_percentage_24h > 0}
+    // (64:1) {#if coin.price_change_percentage_24h > 0}
     function create_if_block(ctx) {
     	let p;
     	let t0;
@@ -608,7 +608,7 @@ var app = (function () {
     			t0 = text("%");
     			t1 = text(t1_value);
     			attr_dev(p, "class", "text-green-500");
-    			add_location(p, file, 66, 1, 1733);
+    			add_location(p, file, 64, 1, 1731);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -627,14 +627,14 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(66:1) {#if coin.price_change_percentage_24h > 0}",
+    		source: "(64:1) {#if coin.price_change_percentage_24h > 0}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (57:1) {#each searchResult as coin}
+    // (55:1) {#each searchResult as coin}
     function create_each_block(ctx) {
     	let div;
     	let p0;
@@ -692,19 +692,19 @@ var app = (function () {
     			t10 = text(t10_value);
     			t11 = space();
     			attr_dev(p0, "class", "mb-2");
-    			add_location(p0, file, 61, 0, 1507);
+    			add_location(p0, file, 59, 0, 1505);
     			attr_dev(img, "class", "w-16 h-16");
     			if (img.src !== (img_src_value = /*coin*/ ctx[6].image)) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", img_alt_value = /*coin*/ ctx[6].name);
-    			add_location(img, file, 62, 0, 1551);
+    			add_location(img, file, 60, 0, 1549);
     			attr_dev(p1, "class", "text-lg");
-    			add_location(p1, file, 63, 1, 1611);
-    			add_location(p2, file, 64, 1, 1647);
+    			add_location(p1, file, 61, 1, 1609);
+    			add_location(p2, file, 62, 1, 1645);
     			attr_dev(p3, "class", "font-semibold");
-    			add_location(p3, file, 70, 0, 1901);
+    			add_location(p3, file, 68, 0, 1899);
     			attr_dev(div, "class", "p-4 bg-red-200 text-gray-800 text-center rounded-md shadow-sm hover:shadow-md flex flex-col items-center");
     			attr_dev(div, "href", div_href_value = "/coin/$" + /*coin*/ ctx[6].id);
-    			add_location(div, file, 57, 1, 1360);
+    			add_location(div, file, 55, 1, 1358);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -769,7 +769,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(57:1) {#each searchResult as coin}",
+    		source: "(55:1) {#each searchResult as coin}",
     		ctx
     	});
 
@@ -819,11 +819,11 @@ var app = (function () {
     			attr_dev(input, "type", "text");
     			attr_dev(input, "class", "w-full rounded-md text-lg p-4 border-2 border-gray-200 my-4");
     			attr_dev(input, "placeholder", "Search a currency...");
-    			add_location(input, file, 46, 0, 1083);
+    			add_location(input, file, 44, 0, 1081);
     			attr_dev(div, "class", "grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4");
-    			add_location(div, file, 55, 0, 1259);
+    			add_location(div, file, 53, 0, 1257);
     			attr_dev(main, "class", "px-8 py-4 max-w-7xl mx-auto bg-gray-600 font-mono");
-    			add_location(main, file, 41, 0, 997);
+    			add_location(main, file, 39, 0, 995);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
