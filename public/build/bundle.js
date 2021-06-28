@@ -151,31 +151,11 @@ var app = (function () {
         }
     }
     const outroing = new Set();
-    let outros;
     function transition_in(block, local) {
         if (block && block.i) {
             outroing.delete(block);
             block.i(local);
         }
-    }
-    function transition_out(block, local, detach, callback) {
-        if (block && block.o) {
-            if (outroing.has(block))
-                return;
-            outroing.add(block);
-            outros.c.push(() => {
-                outroing.delete(block);
-                if (callback) {
-                    if (detach)
-                        block.d(1);
-                    callback();
-                }
-            });
-            block.o(local);
-        }
-    }
-    function create_component(block) {
-        block && block.c();
     }
     function mount_component(component, target, anchor, customElement) {
         const { fragment, on_mount, on_destroy, after_update } = component.$$;
@@ -502,12 +482,12 @@ var app = (function () {
     			attr_dev(img, "width", "50");
     			if (img.src !== (img_src_value = /*coin*/ ctx[5].image)) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", img_alt_value = /*coin*/ ctx[5].name);
-    			add_location(img, file, 51, 1, 1196);
-    			add_location(h2, file, 52, 1, 1249);
-    			add_location(p, file, 53, 1, 1271);
+    			add_location(img, file, 51, 1, 1205);
+    			add_location(h2, file, 52, 1, 1258);
+    			add_location(p, file, 53, 1, 1280);
     			attr_dev(a, "class", "p-6 bg-red-200 text-gray-800 text-center rounded-md shadow-sm hover:shadow-md flex flex-col items-center");
     			attr_dev(a, "href", a_href_value = "/coin/$" + /*coin*/ ctx[5].id);
-    			add_location(a, file, 47, 1, 1051);
+    			add_location(a, file, 47, 1, 1060);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -556,17 +536,13 @@ var app = (function () {
     function create_fragment(ctx) {
     	let t0;
     	let main;
-    	let nav;
-    	let t1;
     	let h1;
-    	let t3;
+    	let t2;
     	let input;
-    	let t4;
+    	let t3;
     	let div;
-    	let current;
     	let mounted;
     	let dispose;
-    	nav = new Nav({ $$inline: true });
     	let each_value = /*searchResult*/ ctx[1];
     	validate_each_argument(each_value);
     	let each_blocks = [];
@@ -579,13 +555,11 @@ var app = (function () {
     		c: function create() {
     			t0 = space();
     			main = element("main");
-    			create_component(nav.$$.fragment);
-    			t1 = space();
     			h1 = element("h1");
     			h1.textContent = "Crypto-Tracker";
-    			t3 = space();
+    			t2 = space();
     			input = element("input");
-    			t4 = space();
+    			t3 = space();
     			div = element("div");
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
@@ -594,13 +568,13 @@ var app = (function () {
 
     			document.title = "Crypto-Coins";
     			attr_dev(h1, "class", "text-gray-100 text-4xl text-center my-8 uppercase");
-    			add_location(h1, file, 34, 1, 709);
+    			add_location(h1, file, 34, 1, 718);
     			attr_dev(input, "type", "text");
     			attr_dev(input, "class", "w-full rounded-md text-lg p-4 border-2 border-gray-200 my-4");
     			attr_dev(input, "placeholder", "Search a currency...");
-    			add_location(input, file, 36, 0, 792);
+    			add_location(input, file, 36, 0, 801);
     			attr_dev(div, "class", "grid gap-4 grid-cols-2 md:grid-cols-4");
-    			add_location(div, file, 45, 0, 968);
+    			add_location(div, file, 45, 0, 977);
     			attr_dev(main, "class", "p-8 max-w-6xl mx-auto bg-gray-600");
     			add_location(main, file, 32, 0, 650);
     		},
@@ -610,20 +584,16 @@ var app = (function () {
     		m: function mount(target, anchor) {
     			insert_dev(target, t0, anchor);
     			insert_dev(target, main, anchor);
-    			mount_component(nav, main, null);
-    			append_dev(main, t1);
     			append_dev(main, h1);
-    			append_dev(main, t3);
+    			append_dev(main, t2);
     			append_dev(main, input);
     			set_input_value(input, /*search*/ ctx[0]);
-    			append_dev(main, t4);
+    			append_dev(main, t3);
     			append_dev(main, div);
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].m(div, null);
     			}
-
-    			current = true;
 
     			if (!mounted) {
     				dispose = [
@@ -663,19 +633,11 @@ var app = (function () {
     				each_blocks.length = each_value.length;
     			}
     		},
-    		i: function intro(local) {
-    			if (current) return;
-    			transition_in(nav.$$.fragment, local);
-    			current = true;
-    		},
-    		o: function outro(local) {
-    			transition_out(nav.$$.fragment, local);
-    			current = false;
-    		},
+    		i: noop,
+    		o: noop,
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(t0);
     			if (detaching) detach_dev(main);
-    			destroy_component(nav);
     			destroy_each(each_blocks, detaching);
     			mounted = false;
     			run_all(dispose);

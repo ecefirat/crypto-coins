@@ -31,7 +31,7 @@ import Nav from "./nav.svelte"
 </svelte:head>
 
 <main class="p-8 max-w-6xl mx-auto bg-gray-600">
-	<Nav />
+	<!-- <Nav /> -->
 	<h1 class="text-gray-100 text-4xl text-center my-8 uppercase">Crypto-Tracker</h1>
 
 <input
