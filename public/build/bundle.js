@@ -724,7 +724,7 @@ var app = (function () {
     			add_location(input, file, 47, 0, 1337);
     			attr_dev(div, "class", "grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4");
     			add_location(div, file, 56, 0, 1513);
-    			attr_dev(main, "class", "p-8 max-w-6xl mx-auto bg-gray-600");
+    			attr_dev(main, "class", "p-8 max-w-7xl mx-auto bg-gray-600");
     			add_location(main, file, 41, 0, 961);
     		},
     		l: function claim(nodes) {
