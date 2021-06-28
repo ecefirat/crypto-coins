@@ -16,4 +16,4 @@ https://www.coingecko.com/en/api
 - npm start
 
 # Visit at
-crypto-coins-henna.vercel.app
+https://crypto-coins-henna.vercel.app/
