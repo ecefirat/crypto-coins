@@ -462,7 +462,7 @@ var app = (function () {
     			t0 = text("%");
     			t1 = text(t1_value);
     			attr_dev(p, "class", "text-red-500");
-    			add_location(p, file, 69, 1, 2147);
+    			add_location(p, file, 69, 1, 2145);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -501,7 +501,7 @@ var app = (function () {
     			t0 = text("%");
     			t1 = text(t1_value);
     			attr_dev(p, "class", "text-green-500");
-    			add_location(p, file, 67, 1, 2060);
+    			add_location(p, file, 67, 1, 2058);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -585,19 +585,19 @@ var app = (function () {
     			t10 = text(t10_value);
     			t11 = space();
     			attr_dev(p0, "class", "mb-2");
-    			add_location(p0, file, 62, 0, 1834);
+    			add_location(p0, file, 62, 0, 1832);
     			attr_dev(img, "class", "w-16 h-16");
     			if (img.src !== (img_src_value = /*coin*/ ctx[6].image)) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", img_alt_value = /*coin*/ ctx[6].name);
-    			add_location(img, file, 63, 0, 1878);
+    			add_location(img, file, 63, 0, 1876);
     			attr_dev(p1, "class", "text-lg");
-    			add_location(p1, file, 64, 1, 1938);
-    			add_location(p2, file, 65, 1, 1974);
+    			add_location(p1, file, 64, 1, 1936);
+    			add_location(p2, file, 65, 1, 1972);
     			attr_dev(p3, "class", "font-semibold");
-    			add_location(p3, file, 71, 0, 2228);
+    			add_location(p3, file, 71, 0, 2226);
     			attr_dev(div, "class", "p-4 bg-red-200 text-gray-800 text-center rounded-md shadow-sm hover:shadow-md flex flex-col items-center");
     			attr_dev(div, "href", div_href_value = "/coin/$" + /*coin*/ ctx[6].id);
-    			add_location(div, file, 58, 1, 1687);
+    			add_location(div, file, 58, 1, 1685);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -696,7 +696,7 @@ var app = (function () {
     			t0 = space();
     			main = element("main");
     			h1 = element("h1");
-    			h1.textContent = "Crypto-Tracker";
+    			h1.textContent = "crypto-coins";
     			t2 = space();
     			p = element("p");
     			p.textContent = "for the highest 20 cryptocurrency";
@@ -712,19 +712,19 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			document.title = "Crypto-Coins";
+    			document.title = "Crypto Coins";
     			attr_dev(h1, "class", "text-gray-100 font-semibold md:text-4xl sm:text-xl text-center mt-8 uppercase");
     			add_location(h1, file, 43, 1, 1039);
     			attr_dev(p, "class", "text-gray-300 md:text-sm sm:text-xs italic text-center");
-    			add_location(p, file, 44, 1, 1150);
+    			add_location(p, file, 44, 1, 1148);
     			attr_dev(h3, "class", "text-gray-200 md:text-2xl sm:text-sm text-center italic my-6");
-    			add_location(h3, file, 45, 1, 1255);
+    			add_location(h3, file, 45, 1, 1253);
     			attr_dev(input, "type", "text");
     			attr_dev(input, "class", "w-full rounded-md text-lg p-4 border-2 border-gray-200 my-4");
     			attr_dev(input, "placeholder", "Search a currency...");
-    			add_location(input, file, 47, 0, 1410);
+    			add_location(input, file, 47, 0, 1408);
     			attr_dev(div, "class", "grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4");
-    			add_location(div, file, 56, 0, 1586);
+    			add_location(div, file, 56, 0, 1584);
     			attr_dev(main, "class", "p-8 max-w-7xl mx-auto bg-gray-600 font-mono");
     			add_location(main, file, 41, 0, 961);
     		},
