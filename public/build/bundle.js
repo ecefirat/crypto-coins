@@ -385,24 +385,16 @@ var app = (function () {
 
     function create_fragment$2(ctx) {
     	let nav;
-    	let a0;
-    	let t1;
-    	let a1;
+    	let a;
 
     	const block = {
     		c: function create() {
     			nav = element("nav");
-    			a0 = element("a");
-    			a0.textContent = "Home";
-    			t1 = space();
-    			a1 = element("a");
-    			a1.textContent = "About";
-    			attr_dev(a0, "class", "m-4 text-lg");
-    			attr_dev(a0, "href", "/");
-    			add_location(a0, file$2, 1, 1, 66);
-    			attr_dev(a1, "class", "m-4 text-lg");
-    			attr_dev(a1, "href", "/about");
-    			add_location(a1, file$2, 2, 1, 108);
+    			a = element("a");
+    			a.textContent = "Home";
+    			attr_dev(a, "class", "m-4 text-lg");
+    			attr_dev(a, "href", "/");
+    			add_location(a, file$2, 1, 1, 66);
     			attr_dev(nav, "class", "text-gray-100 flex justify-center w-full font-mono");
     			add_location(nav, file$2, 0, 0, 0);
     		},
@@ -411,9 +403,7 @@ var app = (function () {
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, nav, anchor);
-    			append_dev(nav, a0);
-    			append_dev(nav, t1);
-    			append_dev(nav, a1);
+    			append_dev(nav, a);
     		},
     		p: noop,
     		i: noop,
