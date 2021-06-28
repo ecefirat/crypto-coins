@@ -23,6 +23,15 @@ import Nav from "./nav.svelte"
 		}
 	};
 
+	const getNumber = function(num) {
+    var units = ["M","B","T","Q"]
+    var unit = Math.floor((num / 1.0e+1).toFixed(0).toString().length)
+    var r = unit%3
+    var x =  Math.abs(Number(num))/Number('1.0e+'+(unit-r)).toFixed(0)
+	const mc = x.toFixed(0)+ ' ' + units[Math.floor(unit / 3) - 2];
+	return mc;
+};
+
 
 </script>
 
@@ -32,7 +41,9 @@ import Nav from "./nav.svelte"
 
 <main class="p-8 max-w-6xl mx-auto bg-gray-600">
 	<!-- <Nav /> -->
-	<h1 class="text-gray-100 text-4xl text-center my-8 uppercase">Crypto-Tracker</h1>
+	<h1 class="text-gray-100 text-4xl text-center mt-8 uppercase">Crypto-Tracker</h1>
+	<p class="text-gray-300 text-sm italic text-center">for the highest 20 cryptocurrency</p>
+	<h3 class="text-gray-200 text-2xl text-center my-6">Market Cap Rank, Current Price, 24 Hour % Change and Market Cap Information</h3>
 
 <input
 	type="text"
@@ -45,14 +56,22 @@ import Nav from "./nav.svelte"
 
 <div class="grid gap-4 grid-cols-2 md:grid-cols-4">
 	{#each searchResult as coin}
-	<a
+	<div
 	class="p-6 bg-red-200 text-gray-800 text-center rounded-md shadow-sm hover:shadow-md flex flex-col items-center"
 	href="/coin/${coin.id}"
->
-	<img width="50" src={coin.image} alt={coin.name} />
-	<h2>{coin.name}</h2>
-	<p>$ {coin.current_price}</p>
-</a>
+>	
+<p>{coin.market_cap_rank}.</p>
+	<img width="40" height="40" src={coin.image} alt={coin.name} />
+	<p class="text-lg">{coin.name}</p>
+	<p>$ {coin.current_price.toFixed(2)}</p>
+	{#if coin.price_change_percentage_24h > 0}
+	<p>%{coin.price_change_percentage_24h.toFixed(2)}</p>
+	{:else}
+	<p class="text-red-500">%{coin.price_change_percentage_24h.toFixed(2)}</p>
+{/if}
+<p>{getNumber(coin.market_cap)}</p>
+
+</div>
 	{/each}
 </div>
 	

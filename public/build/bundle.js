@@ -445,80 +445,214 @@ var app = (function () {
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[5] = list[i];
+    	child_ctx[6] = list[i];
     	return child_ctx;
     }
 
-    // (47:1) {#each searchResult as coin}
-    function create_each_block(ctx) {
-    	let a;
-    	let img;
-    	let img_src_value;
-    	let img_alt_value;
-    	let t0;
-    	let h2;
-    	let t1_value = /*coin*/ ctx[5].name + "";
-    	let t1;
-    	let t2;
+    // (69:1) {:else}
+    function create_else_block(ctx) {
     	let p;
-    	let t3;
-    	let t4_value = /*coin*/ ctx[5].current_price + "";
-    	let t4;
-    	let t5;
-    	let a_href_value;
+    	let t0;
+    	let t1_value = /*coin*/ ctx[6].price_change_percentage_24h.toFixed(2) + "";
+    	let t1;
 
     	const block = {
     		c: function create() {
-    			a = element("a");
-    			img = element("img");
-    			t0 = space();
-    			h2 = element("h2");
-    			t1 = text(t1_value);
-    			t2 = space();
     			p = element("p");
-    			t3 = text("$ ");
-    			t4 = text(t4_value);
-    			t5 = space();
-    			attr_dev(img, "width", "50");
-    			if (img.src !== (img_src_value = /*coin*/ ctx[5].image)) attr_dev(img, "src", img_src_value);
-    			attr_dev(img, "alt", img_alt_value = /*coin*/ ctx[5].name);
-    			add_location(img, file, 51, 1, 1205);
-    			add_location(h2, file, 52, 1, 1258);
-    			add_location(p, file, 53, 1, 1280);
-    			attr_dev(a, "class", "p-6 bg-red-200 text-gray-800 text-center rounded-md shadow-sm hover:shadow-md flex flex-col items-center");
-    			attr_dev(a, "href", a_href_value = "/coin/$" + /*coin*/ ctx[5].id);
-    			add_location(a, file, 47, 1, 1060);
+    			t0 = text("%");
+    			t1 = text(t1_value);
+    			attr_dev(p, "class", "text-red-500");
+    			add_location(p, file, 69, 1, 2026);
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, a, anchor);
-    			append_dev(a, img);
-    			append_dev(a, t0);
-    			append_dev(a, h2);
-    			append_dev(h2, t1);
-    			append_dev(a, t2);
-    			append_dev(a, p);
-    			append_dev(p, t3);
-    			append_dev(p, t4);
-    			append_dev(a, t5);
+    			insert_dev(target, p, anchor);
+    			append_dev(p, t0);
+    			append_dev(p, t1);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*searchResult*/ 2 && img.src !== (img_src_value = /*coin*/ ctx[5].image)) {
+    			if (dirty & /*searchResult*/ 2 && t1_value !== (t1_value = /*coin*/ ctx[6].price_change_percentage_24h.toFixed(2) + "")) set_data_dev(t1, t1_value);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(p);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block.name,
+    		type: "else",
+    		source: "(69:1) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (67:1) {#if coin.price_change_percentage_24h > 0}
+    function create_if_block(ctx) {
+    	let p;
+    	let t0;
+    	let t1_value = /*coin*/ ctx[6].price_change_percentage_24h.toFixed(2) + "";
+    	let t1;
+
+    	const block = {
+    		c: function create() {
+    			p = element("p");
+    			t0 = text("%");
+    			t1 = text(t1_value);
+    			add_location(p, file, 67, 1, 1962);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, p, anchor);
+    			append_dev(p, t0);
+    			append_dev(p, t1);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*searchResult*/ 2 && t1_value !== (t1_value = /*coin*/ ctx[6].price_change_percentage_24h.toFixed(2) + "")) set_data_dev(t1, t1_value);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(p);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block.name,
+    		type: "if",
+    		source: "(67:1) {#if coin.price_change_percentage_24h > 0}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (58:1) {#each searchResult as coin}
+    function create_each_block(ctx) {
+    	let div;
+    	let p0;
+    	let t0_value = /*coin*/ ctx[6].market_cap_rank + "";
+    	let t0;
+    	let t1;
+    	let t2;
+    	let img;
+    	let img_src_value;
+    	let img_alt_value;
+    	let t3;
+    	let p1;
+    	let t4_value = /*coin*/ ctx[6].name + "";
+    	let t4;
+    	let t5;
+    	let p2;
+    	let t6;
+    	let t7_value = /*coin*/ ctx[6].current_price.toFixed(2) + "";
+    	let t7;
+    	let t8;
+    	let t9;
+    	let p3;
+    	let t10_value = /*getNumber*/ ctx[3](/*coin*/ ctx[6].market_cap) + "";
+    	let t10;
+    	let t11;
+    	let div_href_value;
+
+    	function select_block_type(ctx, dirty) {
+    		if (/*coin*/ ctx[6].price_change_percentage_24h > 0) return create_if_block;
+    		return create_else_block;
+    	}
+
+    	let current_block_type = select_block_type(ctx);
+    	let if_block = current_block_type(ctx);
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			p0 = element("p");
+    			t0 = text(t0_value);
+    			t1 = text(".");
+    			t2 = space();
+    			img = element("img");
+    			t3 = space();
+    			p1 = element("p");
+    			t4 = text(t4_value);
+    			t5 = space();
+    			p2 = element("p");
+    			t6 = text("$ ");
+    			t7 = text(t7_value);
+    			t8 = space();
+    			if_block.c();
+    			t9 = space();
+    			p3 = element("p");
+    			t10 = text(t10_value);
+    			t11 = space();
+    			add_location(p0, file, 62, 0, 1743);
+    			attr_dev(img, "width", "40");
+    			attr_dev(img, "height", "40");
+    			if (img.src !== (img_src_value = /*coin*/ ctx[6].image)) attr_dev(img, "src", img_src_value);
+    			attr_dev(img, "alt", img_alt_value = /*coin*/ ctx[6].name);
+    			add_location(img, file, 63, 1, 1775);
+    			attr_dev(p1, "class", "text-lg");
+    			add_location(p1, file, 64, 1, 1840);
+    			add_location(p2, file, 65, 1, 1876);
+    			add_location(p3, file, 71, 0, 2107);
+    			attr_dev(div, "class", "p-6 bg-red-200 text-gray-800 text-center rounded-md shadow-sm hover:shadow-md flex flex-col items-center");
+    			attr_dev(div, "href", div_href_value = "/coin/$" + /*coin*/ ctx[6].id);
+    			add_location(div, file, 58, 1, 1596);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			append_dev(div, p0);
+    			append_dev(p0, t0);
+    			append_dev(p0, t1);
+    			append_dev(div, t2);
+    			append_dev(div, img);
+    			append_dev(div, t3);
+    			append_dev(div, p1);
+    			append_dev(p1, t4);
+    			append_dev(div, t5);
+    			append_dev(div, p2);
+    			append_dev(p2, t6);
+    			append_dev(p2, t7);
+    			append_dev(div, t8);
+    			if_block.m(div, null);
+    			append_dev(div, t9);
+    			append_dev(div, p3);
+    			append_dev(p3, t10);
+    			append_dev(div, t11);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*searchResult*/ 2 && t0_value !== (t0_value = /*coin*/ ctx[6].market_cap_rank + "")) set_data_dev(t0, t0_value);
+
+    			if (dirty & /*searchResult*/ 2 && img.src !== (img_src_value = /*coin*/ ctx[6].image)) {
     				attr_dev(img, "src", img_src_value);
     			}
 
-    			if (dirty & /*searchResult*/ 2 && img_alt_value !== (img_alt_value = /*coin*/ ctx[5].name)) {
+    			if (dirty & /*searchResult*/ 2 && img_alt_value !== (img_alt_value = /*coin*/ ctx[6].name)) {
     				attr_dev(img, "alt", img_alt_value);
     			}
 
-    			if (dirty & /*searchResult*/ 2 && t1_value !== (t1_value = /*coin*/ ctx[5].name + "")) set_data_dev(t1, t1_value);
-    			if (dirty & /*searchResult*/ 2 && t4_value !== (t4_value = /*coin*/ ctx[5].current_price + "")) set_data_dev(t4, t4_value);
+    			if (dirty & /*searchResult*/ 2 && t4_value !== (t4_value = /*coin*/ ctx[6].name + "")) set_data_dev(t4, t4_value);
+    			if (dirty & /*searchResult*/ 2 && t7_value !== (t7_value = /*coin*/ ctx[6].current_price.toFixed(2) + "")) set_data_dev(t7, t7_value);
 
-    			if (dirty & /*searchResult*/ 2 && a_href_value !== (a_href_value = "/coin/$" + /*coin*/ ctx[5].id)) {
-    				attr_dev(a, "href", a_href_value);
+    			if (current_block_type === (current_block_type = select_block_type(ctx)) && if_block) {
+    				if_block.p(ctx, dirty);
+    			} else {
+    				if_block.d(1);
+    				if_block = current_block_type(ctx);
+
+    				if (if_block) {
+    					if_block.c();
+    					if_block.m(div, t9);
+    				}
+    			}
+
+    			if (dirty & /*searchResult*/ 2 && t10_value !== (t10_value = /*getNumber*/ ctx[3](/*coin*/ ctx[6].market_cap) + "")) set_data_dev(t10, t10_value);
+
+    			if (dirty & /*searchResult*/ 2 && div_href_value !== (div_href_value = "/coin/$" + /*coin*/ ctx[6].id)) {
+    				attr_dev(div, "href", div_href_value);
     			}
     		},
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(a);
+    			if (detaching) detach_dev(div);
+    			if_block.d();
     		}
     	};
 
@@ -526,7 +660,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(47:1) {#each searchResult as coin}",
+    		source: "(58:1) {#each searchResult as coin}",
     		ctx
     	});
 
@@ -538,8 +672,12 @@ var app = (function () {
     	let main;
     	let h1;
     	let t2;
+    	let p;
+    	let t4;
+    	let h3;
+    	let t6;
     	let input;
-    	let t3;
+    	let t7;
     	let div;
     	let mounted;
     	let dispose;
@@ -558,8 +696,14 @@ var app = (function () {
     			h1 = element("h1");
     			h1.textContent = "Crypto-Tracker";
     			t2 = space();
+    			p = element("p");
+    			p.textContent = "for the highest 20 cryptocurrency";
+    			t4 = space();
+    			h3 = element("h3");
+    			h3.textContent = "Market Cap Rank, Current Price, 24 Hour % Change and Market Cap Information";
+    			t6 = space();
     			input = element("input");
-    			t3 = space();
+    			t7 = space();
     			div = element("div");
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
@@ -567,16 +711,20 @@ var app = (function () {
     			}
 
     			document.title = "Crypto-Coins";
-    			attr_dev(h1, "class", "text-gray-100 text-4xl text-center my-8 uppercase");
-    			add_location(h1, file, 34, 1, 718);
+    			attr_dev(h1, "class", "text-gray-100 text-4xl text-center mt-8 uppercase");
+    			add_location(h1, file, 43, 1, 1029);
+    			attr_dev(p, "class", "text-gray-300 text-sm italic text-center");
+    			add_location(p, file, 44, 1, 1112);
+    			attr_dev(h3, "class", "text-gray-200 text-2xl text-center my-6");
+    			add_location(h3, file, 45, 1, 1203);
     			attr_dev(input, "type", "text");
     			attr_dev(input, "class", "w-full rounded-md text-lg p-4 border-2 border-gray-200 my-4");
     			attr_dev(input, "placeholder", "Search a currency...");
-    			add_location(input, file, 36, 0, 801);
+    			add_location(input, file, 47, 0, 1337);
     			attr_dev(div, "class", "grid gap-4 grid-cols-2 md:grid-cols-4");
-    			add_location(div, file, 45, 0, 977);
+    			add_location(div, file, 56, 0, 1513);
     			attr_dev(main, "class", "p-8 max-w-6xl mx-auto bg-gray-600");
-    			add_location(main, file, 32, 0, 650);
+    			add_location(main, file, 41, 0, 961);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -586,9 +734,13 @@ var app = (function () {
     			insert_dev(target, main, anchor);
     			append_dev(main, h1);
     			append_dev(main, t2);
+    			append_dev(main, p);
+    			append_dev(main, t4);
+    			append_dev(main, h3);
+    			append_dev(main, t6);
     			append_dev(main, input);
     			set_input_value(input, /*search*/ ctx[0]);
-    			append_dev(main, t3);
+    			append_dev(main, t7);
     			append_dev(main, div);
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
@@ -597,7 +749,7 @@ var app = (function () {
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(input, "input", /*input_input_handler*/ ctx[3]),
+    					listen_dev(input, "input", /*input_input_handler*/ ctx[4]),
     					listen_dev(input, "input", /*handleSearch*/ ctx[2], false, false, false)
     				];
 
@@ -609,7 +761,7 @@ var app = (function () {
     				set_input_value(input, /*search*/ ctx[0]);
     			}
 
-    			if (dirty & /*searchResult*/ 2) {
+    			if (dirty & /*searchResult, getNumber*/ 10) {
     				each_value = /*searchResult*/ ctx[1];
     				validate_each_argument(each_value);
     				let i;
@@ -676,6 +828,15 @@ var app = (function () {
     		}
     	};
 
+    	const getNumber = function (num) {
+    		var units = ["M", "B", "T", "Q"];
+    		var unit = Math.floor((num / 10).toFixed(0).toString().length);
+    		var r = unit % 3;
+    		var x = Math.abs(Number(num)) / Number("1.0e+" + (unit - r)).toFixed(0);
+    		const mc = x.toFixed(0) + " " + units[Math.floor(unit / 3) - 2];
+    		return mc;
+    	};
+
     	const writable_props = [];
 
     	Object.keys($$props).forEach(key => {
@@ -693,7 +854,8 @@ var app = (function () {
     		coins,
     		search,
     		searchResult,
-    		handleSearch
+    		handleSearch,
+    		getNumber
     	});
 
     	$$self.$inject_state = $$props => {
@@ -706,7 +868,7 @@ var app = (function () {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [search, searchResult, handleSearch, input_input_handler];
+    	return [search, searchResult, handleSearch, getNumber, input_input_handler];
     }
 
     class App extends SvelteComponentDev {
